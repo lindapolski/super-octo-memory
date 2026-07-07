@@ -1,31 +1,189 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Portal</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#050505;
+    color:#00ff80;
+    font-family:Menlo,Consolas,monospace;
+    display:grid;
+    place-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.scan{
+    width:min(720px,92vw);
+    padding:35px;
+    border:1px solid #00ff8080;
+    box-shadow:0 0 40px #00ff8040;
+    animation:flicker .12s infinite alternate;
+}
+
+.scan h1{
+    color:white;
+    text-align:center;
+    letter-spacing:4px;
+    margin-top:0;
+    margin-bottom:35px;
+}
+
+.line{
+    opacity:0;
+    margin:14px 0;
+    font-size:18px;
+    animation:show .15s forwards;
+}
+
+.l1{animation-delay:.05s;}
+.l2{animation-delay:.25s;}
+.l3{animation-delay:.45s;}
+.l4{animation-delay:.65s;}
+
+.bar{
+    margin-top:28px;
+    border:1px solid #00ff80;
+    height:22px;
+    overflow:hidden;
+}
+
+.fill{
+    width:0%;
+    height:100%;
+    background:#00ff80;
+    animation:load .85s forwards;
+}
+
+.warning{
+    display:none;
+    width:100vw;
+    height:100vh;
+    background:#b30000;
+    color:white;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:40px;
+    animation:shake .25s linear 2;
+}
+
+.warning-inner{
+    max-width:850px;
+}
+
+.warning h2{
+    font-size:clamp(48px,8vw,95px);
+    margin:0 0 25px;
+}
+
+.warning p{
+    font-family:Arial,sans-serif;
+    font-size:28px;
+    line-height:1.45;
+}
+
+.small{
+    font-size:20px !important;
+    margin-top:40px;
+}
+
+@keyframes show{
+    to{opacity:1;}
+}
+
+@keyframes load{
+    to{width:100%;}
+}
+
+@keyframes flicker{
+    from{opacity:.95;}
+    to{opacity:1;}
+}
+
+@keyframes shake{
+    0%{transform:translate(0);}
+    25%{transform:translate(8px,-4px);}
+    50%{transform:translate(-8px,4px);}
+    75%{transform:translate(4px,4px);}
+    100%{transform:translate(0);}
+}
+</style>
+
+</head>
+
+<body>
+
+<main class="scan" id="scan">
+
+<h1>SECURITY PORTAL</h1>
+
+<div class="line l1">Establishing secure connection...</div>
+
+<div class="line l2">✔ Browser verified</div>
+
+<div class="line l3">✔ Session initialized</div>
+
+<div class="line l4">Loading internal resources...</div>
+
+<div class="bar">
+<div class="fill"></div>
+</div>
+
+</main>
+
 <section class="warning" id="warning">
-    <div class="warning-inner">
 
-        <h2>🚨🚨 STOP 🚨🚨</h2>
+<div class="warning-inner">
 
-        <p><strong>Dit was een phishingtest.</strong></p>
+<h2>🚨 STOP 🚨</h2>
 
-        <p>Je klikte op een link in een nepmail.</p>
+<p><strong>Dit was een phishingtest.</strong></p>
 
-        <p>
-            Met een reden: we willen je vragen of we dit ook mogen doen bij de rest van de redactie.
-            Dan sturen we een vergelijkbare nepmail, zogenaamd namens jou.
-        </p>
+<p>Je klikte op een link in een nepmail.</p>
 
-        <p>
-            Daarna willen we graag een moment prikken om met de redactie door te praten over digitale veiligheid.
-        </p>
-        <p>
-            Steeds meer redacties voeren dit soort phishingtests uit om medewerkers alert te houden op steeds overtuigendere digitale aanvallen.
-        </p>
-        <p style="margin-top:40px;font-size:34px;">
-            <strong>Vind je dat goed?</strong>
-        </p>
+<p>
+Met een reden: we willen je vragen of we dit ook mogen doen bij de rest van de redactie.
+Dan sturen we een vergelijkbare nepmail, zogenaamd namens jou.
+</p>
 
-        <p class="small">
-            Groet,<br><br>
-            Linda &amp; Michelle
-        </p>
+<p>
+Daarna willen we graag een moment prikken om met de redactie door te praten over digitale veiligheid.
+</p>
 
-    </div>
+<p>
+Steeds meer nieuwsorganisaties voeren dit soort phishingtests uit om medewerkers alert te houden op steeds overtuigendere digitale aanvallen.
+</p>
+
+<p style="margin-top:35px;"><strong>Vind je dat goed?</strong></p>
+
+<p class="small">
+Groet,<br><br>
+Linda &amp; Michelle
+</p>
+
+</div>
+
 </section>
+
+<script>
+
+setTimeout(function(){
+
+document.getElementById("scan").style.display="none";
+document.getElementById("warning").style.display="grid";
+
+},950);
+
+</script>
+
+</body>
+</html>
